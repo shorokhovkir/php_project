@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         $stmt = $conn->prepare("INSERT INTO users (username, password, background_color, font_color) VALUES (?, ?, ?, ?)");
         $stmt->execute([$username, $password, $background_color, $font_color]);
-        header("Location: login.php");
+        header("Location: ../index.php");
         exit();
     } catch(PDOException $e) {
         $error = "Registration failed: " . $e->getMessage();
