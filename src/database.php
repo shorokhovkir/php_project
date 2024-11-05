@@ -1,14 +1,13 @@
 <?php
-$servername = "MySQL-8.2";
-$username = "root";
-$password = "";
-$dbname = "lab_3";
+$host = 'MySQL-8.2';
+$dbname = 'lab_3';
+$username = 'root';
+$password = '';
 
-// Создание подключения
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Проверка подключения
-if ($conn->connect_error) {
-    die("Ошибка подключения: " . $conn->connect_error);
+try {
+    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e) {
+    die("Connection failed: " . $e->getMessage());
 }
 ?>
