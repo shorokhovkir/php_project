@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: src/dashboard.php");
         exit();
     } else {
-        $error = "Invalid username or password";
+        $error = "Неверное имя поьзователя или пароль";
     }
 }
 ?>
@@ -56,10 +56,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <?php if (isset($error)) echo "<p>$error</p>"; ?>
     <form method="POST">
-        <input type="text" name="username" placeholder="Username" required><br>
-        <input type="password" name="password" placeholder="Password" required><br>
-        <button type="submit">Login</button>
+        <input type="text" name="username" placeholder="Имя пользователя" required><br>
+        <input type="password" name="password" placeholder="Пароль" required><br>
+        <button type="submit">Вход</button>
     </form>
-    <a href="src/register.php">Register</a>
+    <a href="src/register.php">Регистрация</a>
 </body>
 </html>

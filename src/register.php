@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: ../index.php");
         exit();
     } catch(PDOException $e) {
-        $error = "Registration failed: " . $e->getMessage();
+        $error = "Произошла ошибка при регистрации: " . $e->getMessage();
     }
 }
 ?>
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>Регистрация</title>
 </head>
 <body>
     <?php if (isset($error)) echo "<p>$error</p>"; ?>
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="password" name="password" placeholder="Пароль" required><br>
         <input type="color" name="background_color" value="#ffffff"> Фоновый цвет<br>
         <input type="color" name="font_color" value="#000000"> Цвет шрифта<br>
-        <button type="submit">Register</button>
+        <button type="submit">Зарегистрироваться</button>
     </form>
 </body>
 </html>

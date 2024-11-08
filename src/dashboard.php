@@ -3,7 +3,8 @@ session_start();
 require_once 'database.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: /index.php");
+    header("Location: ../index.php");
+    echo "Вы не авторизованы";
     exit();
 }
 
@@ -25,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard</title>
+    <title>Личный кабинет</title>
     <style>
         body {
             background-color: <?php echo $_COOKIE['background_color'] ?? '#ffffff'; ?>;
@@ -34,16 +35,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
-    <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
+    <h1>Здравствуйте, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
 
     <form method="POST">
-        <label>Background Color:</label>
+        <label>Фоновый цвет:</label>
         <input type="color" name="background_color" value="<?php echo $_COOKIE['background_color'] ?? '#ffffff'; ?>"><br>
-        <label>Font Color:</label>
+        <label>Цвет шрифта:</label>
         <input type="color" name="font_color" value="<?php echo $_COOKIE['font_color'] ?? '#000000'; ?>"><br>
-        <button type="submit">Save Settings</button>
+        <button type="submit">Сохранить настройки</button>
     </form>
 
-    <a href="logout.php">Logout</a>
+    <a href="logout.php">Выйти из системы</a>
 </body>
 </html>
